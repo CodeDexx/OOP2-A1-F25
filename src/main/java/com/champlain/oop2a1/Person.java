@@ -3,9 +3,9 @@ package com.champlain.oop2a1;
 import java.time.LocalDate;
 
 public class Person {
-    private String aName;
-    private LocalDate aBirthDate;
-    private String aEmailAddress;
+    private final String aName;
+    private final LocalDate aBirthDate;
+    private final String aEmailAddress;
     private boolean aHasParkingPass = false;
 
     public Person(String pName, LocalDate pBirthDate, String pEmailAddress) {
@@ -29,4 +29,9 @@ public class Person {
     public boolean isPurchasedParkingPass() {
         return this.aHasParkingPass;
     }
+    @Override
+    public String toString() {
+        return this.aName + " (" + this.aBirthDate + ", " + this.aEmailAddress + ")";
+    }
+
 }
