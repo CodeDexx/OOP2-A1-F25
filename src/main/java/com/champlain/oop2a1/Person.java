@@ -9,9 +9,22 @@ public class Person {
     private boolean aHasParkingPass = false;
 
     public Person(String pName, LocalDate pBirthDate, String pEmailAddress) {
+        if (pName == null || pName.isEmpty()) {
+            throw new IllegalArgumentException("The name field is wrong!");
+        }
+        if  (pBirthDate == null || pBirthDate.isAfter(LocalDate.now())) {
+            throw new IllegalArgumentException("The Birth Date field is wrong!");
+        }
+        if  (pEmailAddress == null || !pEmailAddress.contains("@")) {
+            throw new IllegalArgumentException("The Email field is wrong!");
+        }
+        
         this.aName = pName;
         this.aBirthDate = pBirthDate;
         this.aEmailAddress = pEmailAddress;
+
+
+
     }
     public boolean purchaseParkingPass() {
         if (aHasParkingPass) return false;
