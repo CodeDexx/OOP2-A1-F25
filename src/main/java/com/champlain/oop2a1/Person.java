@@ -14,7 +14,8 @@ public class Person {
         this.aEmailAddress = pEmailAddress;
     }
     public boolean purchaseParkingPass() {
-        this.aHasParkingPass = true;
+        if (aHasParkingPass) return false;
+        aHasParkingPass = true;
         return true;
     }
     public String getName() {
